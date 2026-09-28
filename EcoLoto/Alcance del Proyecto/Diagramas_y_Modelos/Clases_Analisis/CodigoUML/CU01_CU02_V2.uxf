@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+
+  <!-- ACTOR -->
+  <element>
+    <id>UMLActor</id>
+    <coordinates><x>50</x><y>200</y><w>80</w><h>100</h></coordinates>
+    <panel_attributes>Ciudadano</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE INTERFAZ (BOUNDARY) - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>250</x><y>200</y><w>120</w><h>100</h></coordinates>
+    <panel_attributes>PantallaRegistro
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(60, 40, 25)
+drawLine(35, 40, 15, 40)
+drawLine(15, 15, 15, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE CONTROL (CONTROL) - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>450</x><y>200</y><w>120</w><h>100</h></coordinates>
+    <panel_attributes>GestorRegistro
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(60, 45, 25)
+drawLine(60, 20, 60, 5)
+drawLine(60, 5, 50, 15)
+drawLine(60, 5, 70, 15)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE ENTIDAD (ENTITY) 1 - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>700</x><y>100</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>UsuarioDomicilio
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(70, 40, 25)
+drawLine(40, 65, 100, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE ENTIDAD (ENTITY) 2 - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>700</x><y>300</y><w>150</w><h>100</h></coordinates>
+    <panel_attributes>ConsentimientoDatos
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(75, 40, 25)
+drawLine(45, 65, 105, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- RELACIONES -->
+
+  <!-- 1. Ciudadano a PantallaRegistro (Asociación Simple) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>110</x><y>240</y><w>160</w><h>40</h></coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+
+  <!-- 2. PantallaRegistro a GestorRegistro (Flecha Unidireccional) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>360</x><y>240</y><w>110</w><h>40</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+
+  <!-- 3. GestorRegistro a UsuarioDomicilio (Flecha Unidireccional diagonal) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>560</x><y>140</y><w>160</w><h>100</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+
+  <!-- 4. UsuarioDomicilio a ConsentimientoDatos (Asociación Débil hacia abajo) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>760</x><y>190</y><w>50</w><h>130</h></coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+
+</diagram>

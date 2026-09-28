@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoLoto - Recuperar acceso</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body class="page-shell">
+    <header class="app-header">
+      <div class="container app-header-inner">
+        <a class="brand-link" href="../../index.html">
+          <img src="../assets/log-contrast.png" alt="" class="brand-mark" />
+          <span>EcoLoto</span>
+        </a>
+        <nav class="header-nav" aria-label="Navegación de acceso">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Crear cuenta</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <h1 class="auth-page-title auth-page-title-soft">Recuperar contraseña</h1>
+        <p class="muted">Introduce tu número de teléfono o correo para enviar la recuperación.</p>
+      </section>
+
+      <form id="recoverForm">
+        <label for="channel">Teléfono o correo</label>
+        <input id="channel" name="channel" required autocomplete="email" />
+
+        <div class="btn-row">
+          <button class="btn" type="submit">Enviar recuperación</button>
+        </div>
+        <p id="recoverMessage" class="small"></p>
+      </form>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>EcoLoto © 2026 · Participación ciudadana para un reciclaje responsable.</p>
+        <div class="footer-logos" aria-label="Participantes actuales">
+          <img src="../assets/Ayuntamiento Madrid.png" alt="Ayuntamiento de Madrid" class="footer-logo-img" />
+          <img src="../assets/Ayuntamiento coslada.png" alt="Ayuntamiento de Coslada" class="footer-logo-img" />
+        </div>
+        <a class="btn footer-sponsor-btn" href="mailto:patrocinios@ecoloto.local?subject=Quiero%20participar%20como%20patrocinador">Participa como patrocinador</a>
+      </div>
+    </footer>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+

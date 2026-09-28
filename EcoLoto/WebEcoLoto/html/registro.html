@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoLoto - Registro</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body class="page-shell">
+    <header class="app-header">
+      <div class="container app-header-inner">
+        <a class="brand-link" href="../../index.html">
+          <img src="../assets/log-contrast.png" alt="" class="brand-mark" />
+          <span>EcoLoto</span>
+        </a>
+        <nav class="header-nav" aria-label="Navegación de acceso">
+          <a href="login.html">Iniciar sesión</a>
+          <a class="active" href="registro.html">Crear cuenta</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <h1 class="auth-page-title auth-page-title-soft">Crear cuenta</h1>
+        <p class="muted">Completa los datos para crear tu cuenta EcoLoto.</p>
+      </section>
+
+      <form id="registroForm">
+        <fieldset>
+          <legend>Datos personales</legend>
+          <label for="dni">DNI</label>
+          <input id="dni" name="dni" required autocomplete="off" />
+
+          <label for="firstName">Nombre</label>
+          <input id="firstName" name="firstName" required autocomplete="given-name" />
+
+          <label for="lastName">Apellidos</label>
+          <input id="lastName" name="lastName" required autocomplete="family-name" />
+
+        </fieldset>
+
+        <fieldset>
+          <legend>Domicilio de residencia</legend>
+          <label for="roadType">Tipo de vía</label>
+          <select id="roadType" name="roadType" required>
+            <option value="" disabled selected>Selecciona un tipo de vía</option>
+            <option value="Calle">Calle</option>
+            <option value="Avenida">Avenida</option>
+            <option value="Plaza">Plaza</option>
+            <option value="Paseo">Paseo</option>
+            <option value="Camino">Camino</option>
+            <option value="Carretera">Carretera</option>
+            <option value="Ronda">Ronda</option>
+            <option value="Travesia">Travesía</option>
+          </select>
+
+          <label for="roadName">Nombre de vía</label>
+          <input id="roadName" name="roadName" required autocomplete="address-line1" />
+
+          <label for="number">Número</label>
+          <input id="number" name="number" required inputmode="numeric" />
+
+          <label for="floor">Piso</label>
+          <input id="floor" name="floor" placeholder="Ejemplo: 3B" autocomplete="address-line2" />
+
+          <label for="autonomousCommunity">Comunidad autónoma</label>
+          <select id="autonomousCommunity" name="autonomousCommunity" required></select>
+
+          <label for="locality">Localidad</label>
+          <select id="locality" name="locality" required></select>
+
+          <label for="postalCode">Código postal</label>
+          <input id="postalCode" name="postalCode" required inputmode="numeric" autocomplete="postal-code" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Contacto y acceso</legend>
+          <label for="phone">Teléfono</label>
+          <input id="phone" name="phone" inputmode="tel" autocomplete="tel" />
+
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" autocomplete="email" />
+
+          <label for="password">Generar contraseña</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            required
+            minlength="8"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}"
+            title="Mínimo 8 caracteres, con mayúscula, minúscula, número y símbolo"
+          />
+
+          <label for="confirmPassword">Verificar contraseña</label>
+          <input id="confirmPassword" type="password" name="confirmPassword" required autocomplete="new-password" />
+        </fieldset>
+
+        <div class="consent-line" role="group" aria-labelledby="consentText">
+          <input id="dataConsent" name="dataConsent" type="checkbox" required />
+          <div>
+            <p id="consentText" class="muted">
+              Consiento el uso y tratamiento de mis datos personales para la gesti&oacute;n de mi cuenta,
+              participaci&oacute;n en el concurso y comunicaciones relacionadas con EcoLoto.
+            </p>
+            <p id="consentDateDisplay" class="small muted" style="margin-top:4px"></p>
+          </div>
+        </div>
+
+        <p id="registroError" class="error"></p>
+        <div class="btn-row">
+          <button class="btn" type="submit">Crear cuenta</button>
+        </div>
+      </form>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>EcoLoto © 2026 · Participación ciudadana para un reciclaje responsable.</p>
+        <div class="footer-logos" aria-label="Participantes actuales">
+          <img src="../assets/Ayuntamiento Madrid.png" alt="Ayuntamiento de Madrid" class="footer-logo-img" />
+          <img src="../assets/Ayuntamiento coslada.png" alt="Ayuntamiento de Coslada" class="footer-logo-img" />
+        </div>
+        <a class="btn footer-sponsor-btn" href="mailto:patrocinios@ecoloto.local?subject=Quiero%20participar%20como%20patrocinador">Participa como patrocinador</a>
+      </div>
+    </footer>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+

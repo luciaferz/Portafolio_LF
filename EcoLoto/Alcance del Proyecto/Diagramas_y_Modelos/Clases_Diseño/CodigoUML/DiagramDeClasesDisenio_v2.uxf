@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+
+  <!-- ========================================== -->
+  <!-- CLASES DE LÓGICA DE NEGOCIO (CONTROLADORES)-->
+  <!-- ========================================== -->
+
+  <!-- CONTROLADOR: Módulo de Registro -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>20</x><y>20</y><w>340</w><h>100</h></coordinates>
+    <panel_attributes>GestorRegistro
+--
+--
++ procesarRegistro(datos: Object): void
++ validarDatosCompletos(datos: Object): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CONTROLADOR: Módulo de Sorteo y Auditoría -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>440</x><y>20</y><w>480</w><h>120</h></coordinates>
+    <panel_attributes>GestorSorteo
+--
+- historialSorteos: List&lt;Sorteo&gt;
+--
++ seleccionarGanador(sorteoActual: Sorteo, bolsas: List&lt;Bolsa&gt;): Bolsa
++ validarPremio(bolsaGanadora: Bolsa, sorteoActual: Sorteo): boolean
++ calcularNuevoBote(sorteoActual: Sorteo, ganadorValido: boolean): double</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CONTROLADOR: Módulo de Etiquetas -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>960</x><y>20</y><w>340</w><h>100</h></coordinates>
+    <panel_attributes>GestorEtiquetas
+--
+--
++ procesarSolicitud(numUsuario: String, lotes: int): void
++ generarOrdenPatrocinador(sol: SolicitudEtiqueta): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ========================================== -->
+  <!-- CLASES DE MODELO DE DATOS (ENTIDADES)      -->
+  <!-- ========================================== -->
+
+  <!-- ENTIDAD: Usuario -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>20</x><y>200</y><w>340</w><h>160</h></coordinates>
+    <panel_attributes>Usuario
+--
+- dni: String
+- nombreRepresentante: String
+- direccion: String
+- numUsuarioUnico: String
+--
++ Usuario(dni: String, nombre: String, dir: String)
++ generarNumUsuarioUnico(): String
++ getDni(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ENTIDAD: Sorteo -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>480</x><y>200</y><w>340</w><h>180</h></coordinates>
+    <panel_attributes>Sorteo
+--
+- idSorteo: String
+- fecha: LocalDate
+- numeroONCE: String
+- boteDisponible: double
+- estado: String
+--
++ Sorteo(fecha: LocalDate, boteInicial: double)
++ setNumeroONCE(numero: String): void
++ getBoteDisponible(): double
++ actualizarBote(nuevoBote: double): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ENTIDAD: Patrocinador -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>960</x><y>200</y><w>340</w><h>130</h></coordinates>
+    <panel_attributes>Patrocinador
+--
+- idSocioComercial: String
+- nombreEmpresa: String
+- presupuestoConsumido: double
+--
++ Patrocinador(id: String, nombre: String)
++ descontarCosteLogistico(coste: double): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ENTIDAD: ConsentimientoDatos -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>60</x><y>480</y><w>260</w><h>110</h></coordinates>
+    <panel_attributes>ConsentimientoDatos
+--
+- fechaConsentimiento: LocalDate
+- aceptado: boolean
+--
++ ConsentimientoDatos(aceptado: boolean)
++ registrarConsentimiento(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ENTIDAD: Bolsa -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>480</x><y>480</y><w>340</w><h>160</h></coordinates>
+    <panel_attributes>Bolsa
+--
+- idBolsa: String
+- numeroBolsa: int
+- numUsuarioUnico: String
+- reciclajeCorrecto: boolean
+- evidenciaFotografica: String
+--
++ Bolsa(numeroBolsa: int, numUsuario: String)
++ auditarReciclaje(estado: boolean): void
++ isReciclajeCorrecto(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ENTIDAD: SolicitudEtiqueta -->
+  <element>
+    <id>UMLClass</id>
+    <coordinates><x>960</x><y>480</y><w>340</w><h>140</h></coordinates>
+    <panel_attributes>SolicitudEtiqueta
+--
+- idSolicitud: String
+- fechaSolicitud: LocalDate
+- cantidadLotes: int
+- estadoEnvio: String
+--
++ SolicitudEtiqueta(lotes: int)
++ actualizarEstado(estado: String): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ========================================== -->
+  <!-- RELACIONES ARQUITECTÓNICAS                 -->
+  <!-- ========================================== -->
+
+  <!-- Relación 1: GestorRegistro depende de Usuario (Uso) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>180</x><y>110</y><w>90</w><h>110</h></coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+
+  <!-- Relación 2: GestorSorteo administra Sorteos (Asociación Estructural 1:N) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>650</x><y>130</y><w>110</w><h>90</h></coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+administra v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+
+  <!-- Relación 3: GestorEtiquetas depende de Patrocinador (Uso) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>1130</x><y>110</y><w>90</w><h>110</h></coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+
+  <!-- Relación 4: Usuario otorga ConsentimientoDatos (Asociación 1:1) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>180</x><y>350</y><w>90</w><h>150</h></coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+otorga v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+
+  <!-- Relación 5: Usuario deposita Bolsa (Asociación 1:N) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>350</x><y>280</y><w>150</w><h>280</h></coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+deposita &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;260.0;130.0;260.0</additional_attributes>
+  </element>
+
+  <!-- Relación 6: Sorteo agrupa Bolsas (Agregación 1:100) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>640</x><y>370</y><w>90</w><h>130</h></coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=100
+agrupa v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+
+  <!-- Relación 7: Patrocinador financia SolicitudEtiqueta (Asociación 1:N) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>1130</x><y>320</y><w>100</w><h>180</h></coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+financia v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+
+  <!-- Relación 8: Usuario realiza SolicitudEtiqueta (Asociación 1:N) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>280</x><y>350</y><w>870</w><h>350</h></coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+realiza &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0;850.0;330.0;850.0;270.0</additional_attributes>
+  </element>
+
+  <!-- Relación 9: GestorEtiquetas procesa SolicitudEtiqueta (Uso) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>1290</x><y>60</y><w>100</w><h>510</h></coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;490.0;10.0;490.0</additional_attributes>
+  </element>
+
+</diagram>

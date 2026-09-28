@@ -1,0 +1,190 @@
+package ecoloto;
+
+import java.util.Arrays;
+
+public class ECOLOTO {
+
+    public static void main(String[] args) {
+//objeto de sorteo
+        Sorteo sorteo = new Sorteo();
+        sorteo.iniciar();
+    }
+}
+    
+
+
+
+package ecoloto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Bolsa {
+
+    private List<String> residuos;
+
+    public Bolsa() {
+        this.residuos = new ArrayList<>();
+    }
+
+    public void agregarResiduo(String residuo) {
+        residuos.add(residuo);
+    }
+
+    public List<String> getResiduos() {
+        return residuos;
+    }
+
+    public boolean estaMalReciclada() {
+        return residuos.size() > 1;
+    }
+
+    public void mostrarContenido() {
+        System.out.println("Contenido de la bolsa: " + residuos);
+    }
+}
+
+
+
+package ecoloto;
+
+import java.util.Scanner;
+
+/**
+ * logica del programa
+ *///guarda el resultado antes de devolver
+//si el reciclaje es correcto devuelve el nuevo bote y llama al metodo entregar premio,sino el nuevo bote sera el actual+1000
+//recibe 2 datos(reciclajeCorrecto y boteactual) y devuelve el valor del bote
+public class Sorteo {
+
+    private double bote = 1000.0;
+    private int semana = 1;
+    private Scanner scanner = new Scanner(System.in);
+
+    public void iniciar() {
+
+        boolean hayGanador = false;
+
+        while (!hayGanador) {
+
+            System.out.println("SEMANA " + semana);
+            System.out.println("Bote actual: " + bote);
+
+            Bolsa bolsa = crearBolsa();
+
+            System.out.println("Analizando bolsa:");
+
+            bolsa.mostrarContenido();
+
+            if (!bolsa.estaMalReciclada()) {
+
+                System.out.println("Hay ganador!,el premio es de: " + bote + " euros");
+                System.out.println("Bote actual : " + 1000.0);
+
+                bote = 1000.0;
+                hayGanador = true;
+
+            } else {
+
+                System.out.println("Bolsa mal reciclada");
+                bote += 1000.0;
+                semana++;
+            }
+        }
+    }
+
+    private Bolsa crearBolsa() {
+
+        Bolsa bolsa = new Bolsa();
+
+        System.out.println("Introduce residuos separados por coma:");
+        String input = scanner.nextLine();
+
+        String[] residuos = input.split(",");
+
+        for (String r : residuos) {
+            bolsa.agregarResiduo(r.trim());
+        }
+
+        return bolsa;
+    }
+
+    public double procesarBolsa(Bolsa bolsa) {
+
+        if (!bolsa.estaMalReciclada()) {
+            bote = 1000.0;
+        } else {
+            bote += 1000.0;
+        }
+
+        return bote;
+    }
+
+    public double getBote() {
+        return bote;
+    }
+}
+
+
+
+
+
+
+import ecoloto.Bolsa;
+import ecoloto.Sorteo;
+import java.util.Arrays;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+public class SorteoTest {
+
+    @Test
+    public void testBolsaBienReciclada() {
+        // Creo un objeto Sorteo
+        Sorteo s = new Sorteo();
+         // Creo una bolsa nueva
+        Bolsa bolsa = new Bolsa();
+        bolsa.agregarResiduo("plastico");//añado un residuo por lo que esta bien reciclado
+
+        bolsa.mostrarContenido();//imprime por consola, no afecta al test
+         //llamada al metodo para validar y devuelve el bote actual
+        double resultado = s.procesarBolsa(bolsa);
+//comprobacion de que el resultado es de 1000 euros,ya que la bolsa esta bien reciclada
+        assertEquals(1000.0, resultado, 0.0);
+    }
+
+    @Test
+    public void testBolsaMalReciclada() {
+
+        Sorteo s = new Sorteo();
+
+        Bolsa bolsa = new Bolsa();
+        bolsa.agregarResiduo("plastico");
+        bolsa.agregarResiduo("vidrio");
+
+        bolsa.mostrarContenido();
+
+        double resultado = s.procesarBolsa(bolsa);
+  //comprobación de que el bote es de 2000 euros ya que esta mal reciclada la bolsa
+        assertEquals(2000.0, resultado, 0.0);
+    }
+
+    @Test
+    public void testAcumulacion() {
+//obj sorteo
+        Sorteo s = new Sorteo();
+//bolsa bien reciclada
+        Bolsa b1 = new Bolsa();
+        b1.agregarResiduo("plastico");
+//bolsa mal reciclada
+        Bolsa b2 = new Bolsa();
+        b2.agregarResiduo("plastico");
+        b2.agregarResiduo("vidrio");
+
+        s.procesarBolsa(b1); // semana 1 con bolsa 1
+        double resultado = s.procesarBolsa(b2); // semana 2 con bolda 2
+          //bote final es de 2000
+        assertEquals(2000.0, resultado, 0.0);
+    }
+}

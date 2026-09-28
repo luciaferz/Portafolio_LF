@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+
+  <!-- ACTOR 1 -->
+  <element>
+    <id>UMLActor</id>
+    <coordinates><x>10</x><y>80</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>&lt;&lt;system&gt;&gt;
+Sistema Externo
+ONCE</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- ACTOR 2 -->
+  <element>
+    <id>UMLActor</id>
+    <coordinates><x>20</x><y>250</y><w>120</w><h>100</h></coordinates>
+    <panel_attributes>Auditor /
+Administrador</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE INTERFAZ (BOUNDARY) - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>220</x><y>160</y><w>180</w><h>100</h></coordinates>
+    <panel_attributes>PantallaSorteoAuditoria
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(90, 40, 25)
+drawLine(65, 40, 45, 40)
+drawLine(45, 15, 45, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE CONTROL (CONTROL) - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>480</x><y>160</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>GestorSorteo
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(70, 45, 25)
+drawLine(70, 20, 70, 5)
+drawLine(70, 5, 60, 15)
+drawLine(70, 5, 80, 15)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE ENTIDAD (ENTITY) 1 - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>720</x><y>60</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>SorteoSemanal
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(70, 40, 25)
+drawLine(40, 65, 100, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE ENTIDAD (ENTITY) 2 - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>720</x><y>260</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>BolsaValidada
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(70, 40, 25)
+drawLine(40, 65, 100, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- RELACIONES -->
+
+  <!-- 1. Sistema ONCE a Pantalla (Asociación Simple diagonal abajo) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>110</x><y>120</y><w>130</w><h>80</h></coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;60.0</additional_attributes>
+  </element>
+
+  <!-- 2. Auditor a Pantalla (Asociación Simple diagonal arriba) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>110</x><y>210</y><w>130</w><h>90</h></coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;110.0;10.0</additional_attributes>
+  </element>
+
+  <!-- 3. Pantalla a Gestor (Flecha Unidireccional recta) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>400</x><y>190</y><w>100</w><h>40</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+
+  <!-- 4. Gestor a SorteoSemanal (Flecha Unidireccional diagonal arriba) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>600</x><y>100</y><w>140</w><h>110</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+
+  <!-- 5. Gestor a BolsaValidada (Flecha Unidireccional diagonal abajo) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>600</x><y>210</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+
+</diagram>

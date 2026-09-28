@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoLoto - Panel</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body data-secure="true" class="page-shell">
+    <div class="layout">
+      <aside class="sidebar" id="sideMenu">
+        <div class="sidebar-brand">
+          <img src="../assets/log-contrast.png" alt="Logo EcoLoto" class="sidebar-logo" />
+          <h2>EcoLoto</h2>
+        </div>
+        <p class="small">Usuario: <strong id="topUser">-</strong></p>
+        <ul class="menu">
+          <li><a href="panel.html" class="active">Inicio</a></li>
+          <li><a href="sorteos.html">Sorteos</a></li>
+          <li><a href="bolsas.html">Bolsas</a></li>
+          <li><a href="solicitudes.html">Etiquetas</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+          <li><a href="configuracion.html">Configuraci&oacute;n</a></li>
+          <li><a href="notificaciones.html">Notificaciones</a></li>
+        </ul>
+        <button id="logoutBtn" class="logout-btn" type="button">Cerrar sesión</button>
+        <button
+          id="menuToggle"
+          class="menu-toggle sidebar-handle"
+          type="button"
+          aria-controls="sideMenu"
+          aria-expanded="true"
+          aria-label="Abrir o cerrar menú lateral"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </aside>
+
+      <main class="main">
+        <div class="topbar">
+          <div class="topbar-brand">
+            <a class="brand-link" href="panel.html">
+              <img src="../assets/log-contrast.png" alt="" class="brand-mark" />
+              <span>EcoLoto</span>
+            </a>
+            <strong class="topbar-title">Hola, <span id="helloUser">usuario</span></strong>
+          </div>
+          <span class="badge">Número de participación: <span id="topParticipation">-</span></span>
+        </div>
+
+        <section class="card">
+          <h2>Número de participación</h2>
+          <p class="muted">Usa este número de participante al entregar tus bolsas de reciclaje para que queden registradas y
+            entren automáticamente en el sorteo semanal.</p>
+          <p><strong id="panelParticipation">-</strong></p>
+        </section>
+
+        <section class="card" style="margin-top: 16px">
+          <h2>Solicitud de etiquetas para bolsas</h2>
+          <p class="muted">
+            Las etiquetas se colocan en cada bolsa de basura para identificarla correctamente en el
+            concurso EcoLoto.
+          </p>
+          <p class="muted">
+            Cada etiqueta incluye una numeraci&oacute;n de control para registrar la bolsa y vincularla a tu
+            participaci&oacute;n semanal.
+          </p>
+          <p class="muted">Gestiona tus solicitudes desde <a href="solicitudes.html" style="color:var(--brand);font-weight:600">Etiquetas</a></p>
+          <button id="requestLabelsBtn" class="btn" type="button">Solicitar etiquetas</button>
+          <p id="labelsRequestMessage" class="muted" style="margin-top: 10px"></p>
+        </section>
+
+        <section class="grid-2" style="margin-top: 16px">
+          <article class="card">
+            <h3>Instrucciones del sorteo</h3>
+            <p class="muted">Sorteo semanal con selección nacional de 100 bolsas por semana.</p>
+            <p class="muted">Solo un ganador cada semana.</p>
+            <p class="muted">Premio único: 1.000 euros.</p>
+            <p class="muted">
+              Si por cualquier motivo no hay ganador, los 1.000 euros se van acumulando cada semana
+              para el concurso siguiente hasta que exista un ganador.
+            </p>
+            <p class="muted">
+              El software cruza el número de bolsa con los dos últimos dígitos del premio ONCE del
+              jueves.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Notificaciones y actualizaciones</h3>
+            <div class="notice" id="weeklyWinner"></div>
+            <div class="notice">
+              Actualización: revisa esta sección cada semana para consultar novedades del sorteo y
+              avisos importantes de participación.
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>EcoLoto © 2026 · Participación ciudadana para un reciclaje responsable.</p>
+        <div class="footer-logos" aria-label="Participantes actuales">
+          <img src="../assets/Ayuntamiento Madrid.png" alt="Ayuntamiento de Madrid" class="footer-logo-img" />
+          <img src="../assets/Ayuntamiento coslada.png" alt="Ayuntamiento de Coslada" class="footer-logo-img" />
+        </div>
+        <a class="btn footer-sponsor-btn" href="mailto:patrocinios@ecoloto.local?subject=Quiero%20participar%20como%20patrocinador">Participa como patrocinador</a>
+      </div>
+    </footer>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+

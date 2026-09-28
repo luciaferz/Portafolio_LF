@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+
+  <!-- ACTOR -->
+  <element>
+    <id>UMLActor</id>
+    <coordinates><x>50</x><y>200</y><w>80</w><h>100</h></coordinates>
+    <panel_attributes>Ciudadano</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE INTERFAZ (BOUNDARY) - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>220</x><y>200</y><w>180</w><h>100</h></coordinates>
+    <panel_attributes>PantallaSolicitudEtiquetas
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(90, 40, 25)
+drawLine(65, 40, 45, 40)
+drawLine(45, 15, 45, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE CONTROL (CONTROL) - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>480</x><y>200</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>GestorEtiquetas
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(70, 45, 25)
+drawLine(70, 20, 70, 5)
+drawLine(70, 5, 60, 15)
+drawLine(70, 5, 80, 15)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE ENTIDAD (ENTITY) 1 - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>720</x><y>100</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>SolicitudEtiqueta
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(70, 40, 25)
+drawLine(40, 65, 100, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- CLASE DE ENTIDAD (ENTITY) 2 - Custom Drawing -->
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates><x>720</x><y>300</y><w>140</w><h>100</h></coordinates>
+    <panel_attributes>Patrocinador
+valign=bottom
+halign=center
+bg=white
+customelement=
+drawCircle(70, 40, 25)
+drawLine(40, 65, 100, 65)</panel_attributes>
+    <additional_attributes/>
+  </element>
+
+  <!-- RELACIONES -->
+
+  <!-- 1. Ciudadano a PantallaSolicitudEtiquetas (Asociación Simple) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>110</x><y>240</y><w>130</w><h>40</h></coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+
+  <!-- 2. Pantalla a Gestor (Flecha Unidireccional) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>390</x><y>240</y><w>110</w><h>40</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+
+  <!-- 3. Gestor a SolicitudEtiqueta (Flecha Unidireccional diagonal arriba) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>600</x><y>140</y><w>140</w><h>110</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+
+  <!-- 4. Gestor a Patrocinador (Flecha Unidireccional diagonal abajo) -->
+  <element>
+    <id>Relation</id>
+    <coordinates><x>600</x><y>250</y><w>140</w><h>110</h></coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+
+</diagram>
