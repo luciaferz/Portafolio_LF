@@ -9,7 +9,16 @@ internalLinks.forEach((link) => {
   });
 });
 
-const animatedItems = document.querySelectorAll('.project-card, .skill-list > div, .education > div');
+const animatedItems = document.querySelectorAll(
+  '.hero .eyebrow, .hero h1, .hero .hero-bottom, .hero .hero-line, ' +
+  '.section-heading, .project-card, .about-copy, .skill-list > div, ' +
+  '.education > div, .contact h2, .contact-note, .contact-row'
+);
+
+animatedItems.forEach((item, index) => {
+  item.classList.add('cascade-item');
+  item.style.setProperty('--cascade-delay', `${index * 70}ms`);
+});
 
 const observer = new IntersectionObserver((entries, currentObserver) => {
   entries.forEach((entry) => {

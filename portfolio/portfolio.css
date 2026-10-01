@@ -443,9 +443,12 @@ h2 em {
 }
 
 .contact {
+    position: relative;
     width: 100%;
     padding: 120px max(5vw, 28px);
-    background: radial-gradient(circle at 50% 0, rgba(181, 108, 255, .26), transparent 30rem), #160d20;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(199, 139, 255, .16), transparent 34rem),
+        linear-gradient(to bottom, var(--bg) 0, #120b1b 18rem, #160d20 34rem);
     text-align: center
 }
 
@@ -484,6 +487,15 @@ h2 em {
     font-weight: 700
 }
 
+.contact-icon {
+    color: var(--purple);
+    width: 34px;
+    flex: 0 0 34px;
+    font: 500 .58rem 'DM Mono', monospace;
+    letter-spacing: .04em;
+    text-align: left;
+}
+
 .contact-row:hover {
     color: var(--purple)
 }
@@ -494,13 +506,13 @@ h2 em {
     align-items: center;
     gap: 34px;
     padding: 38px max(28px, 4vw);
-    background: #eee9f5;
-    color: #18131f;
+    background: #d8c7e7;
+    color: #24182e;
     font-size: .72rem;
     letter-spacing: .02em
 }
 
-.site-footer>span {color:#18131f;white-space:nowrap}
+.site-footer>span {color:#30213c;white-space:nowrap}
 .site-footer>span:first-child {
     text-align: left;
 }
@@ -511,7 +523,7 @@ h2 em {
     gap: 32px
 }
 
-.footer-social a {color:#18131f;font:600 .74rem 'DM Mono',monospace;letter-spacing:.04em}.footer-social a:hover{text-decoration:underline}
+.footer-social a {color:#24182e;font:600 .74rem 'DM Mono',monospace;letter-spacing:.04em;transition:color .25s ease}.footer-social a:hover {color:#7d43ad;text-decoration:none}
 
 .site-footer>span:last-child {
     text-align: right;
@@ -655,5 +667,25 @@ h2 em {
     .project-card {
         opacity: 1;
         transform: none
+    }
+}
+
+/* Entrada escalonada del contenido */
+.cascade-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease var(--cascade-delay, 0ms), transform .7s ease var(--cascade-delay, 0ms);
+}
+
+.cascade-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .cascade-item,
+    .cascade-item.is-visible {
+        opacity: 1;
+        transform: none;
     }
 }
