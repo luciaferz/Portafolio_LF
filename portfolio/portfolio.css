@@ -576,6 +576,8 @@ h2 em {
 
     .hero-bottom {
         align-items: center;
+        min-width: 0;
+        flex-wrap: wrap;
     }
 
     .round-link {
@@ -584,6 +586,8 @@ h2 em {
         flex: 0 0 48px;
         font-size: 1.25rem;
         line-height: 1;
+        writing-mode: horizontal-tb;
+        transform: none;
     }
 
     .hero-line {
@@ -604,6 +608,8 @@ h2 em {
     }
 
     .contact {
+        width: auto;
+        margin-inline: 0;
         padding: 84px 20px 88px;
     }
 
@@ -618,6 +624,7 @@ h2 em {
     .contact-row {
         padding: 8px 0;
         font-size: 1rem;
+        min-width: 0;
     }
 
     .site-footer {
@@ -684,7 +691,9 @@ h2 em {
     }
 
     .project-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
+        margin-inline: 0;
+        padding-inline: 0;
     }
 
     .project-art {
