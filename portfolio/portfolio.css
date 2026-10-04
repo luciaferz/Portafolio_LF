@@ -545,6 +545,81 @@ h2 em {
 }
 
 @media(max-width:700px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .section-wrap {
+        width: auto;
+        max-width: 100%;
+        margin-inline: 20px;
+    }
+
+    .site-header {
+        height: 72px;
+        padding-inline: 20px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 72px 0 42px;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        font-size: clamp(3rem, 15vw, 5rem);
+        line-height: .95;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-bottom {
+        align-items: center;
+    }
+
+    .round-link {
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        font-size: 1.25rem;
+        line-height: 1;
+    }
+
+    .hero-line {
+        margin-top: 42px;
+    }
+
+    .about,
+    .projects {
+        padding: 76px 0 88px;
+    }
+
+    .section-heading {
+        margin-bottom: 36px;
+    }
+
+    .about-copy {
+        margin: 26px 0 48px;
+    }
+
+    .contact {
+        padding: 84px 20px 88px;
+    }
+
+    .contact h2 {
+        font-size: clamp(2.7rem, 12vw, 4rem);
+    }
+
+    .contact-details {
+        gap: 14px;
+    }
+
+    .contact-row {
+        padding: 8px 0;
+        font-size: 1rem;
+    }
+
     .site-footer {
         display: flex;
         flex-direction: column;
