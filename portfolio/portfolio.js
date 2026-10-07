@@ -17,7 +17,7 @@ const animatedItems = document.querySelectorAll(
 
 animatedItems.forEach((item, index) => {
   item.classList.add('cascade-item');
-  item.style.setProperty('--cascade-delay', `${index * 70}ms`);
+  item.style.setProperty('--cascade-delay', `${(index % 5) * 45}ms`);
 });
 
 const revealItems = (items) => {
@@ -37,3 +37,13 @@ if (!('IntersectionObserver' in window)) {
 
   animatedItems.forEach((item) => observer.observe(item));
 }
+
+// El primer bloque entra también al abrir la página desde un enlace o desde la caché.
+const revealHero = () => {
+  window.setTimeout(() => {
+    revealItems(document.querySelectorAll('.hero .cascade-item'));
+  }, 80);
+};
+
+revealHero();
+window.addEventListener('pageshow', revealHero);

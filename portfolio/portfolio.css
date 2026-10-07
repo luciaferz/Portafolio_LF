@@ -58,9 +58,20 @@ a {
 }
 
 .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     font-size: 1.45rem;
     font-weight: 800;
     letter-spacing: -.08em
+}
+
+.brand img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    object-fit: cover;
+    border-radius: 7px;
 }
 
 .brand span {
@@ -242,7 +253,7 @@ h2 em {
 }
 
 .skill-list>div {
-    grid-template-columns: 8% 30% 1fr
+    grid-template-columns: 7% 24% 1fr
 }
 
 .skill-list span,
@@ -250,7 +261,7 @@ h2 em {
 .education span {
     margin: 0;
     color: var(--muted);
-    font: 400 1rem/1.8 'DM Mono', monospace
+    font: 400 .94rem/1.7 'DM Mono', monospace
 }
 
 .skill-list strong,
@@ -261,7 +272,8 @@ h2 em {
 
 .skill-list p {
     color: #eee7f6;
-    overflow-wrap: anywhere
+    overflow-wrap: normal;
+    text-wrap: balance;
 }
 
 .education {
@@ -860,7 +872,7 @@ h2 em {
 .cascade-item {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity .7s ease var(--cascade-delay, 0ms), transform .7s ease var(--cascade-delay, 0ms);
+    transition: opacity .48s ease var(--cascade-delay, 0ms), transform .48s ease var(--cascade-delay, 0ms);
 }
 
 .cascade-item.is-visible {
